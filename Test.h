@@ -10,8 +10,8 @@
 #include<type_traits>
 #include<functional>
 
-
-//ºê¶¨Òå
+//TODO:å‚æ•°ç±»å‹æŠ½è±¡ï¼Œå·¥å…·å‡½æ•°çš„æ‰©å……ï¼ˆè´¨æ•°è¡¨ï¼Œuniqueæ•°ç»„ç”Ÿæˆï¼Œç­›é€‰åŠŸèƒ½æ·»åŠ ï¼‰
+//å®å®šä¹‰
 #define DESIGNTOPICCONFIG using namespace LeetCode::DesignTopic;
 
 #define REGISTRMETHOD(TYPE) TYPE::config();
@@ -24,7 +24,7 @@
 
 
 namespace LeetCode {
-	//Éú³ÉËæ»úvector²âÊÔÓÃÀı£¬stringÀàĞÍÌØ»¯
+	//ç”Ÿæˆéšæœºvectoræµ‹è¯•ç”¨ä¾‹ï¼Œstringç±»å‹ç‰¹åŒ–
 	template<typename _Ty>
 	std::vector<_Ty> generateVecTest(size_t size,int left = 0,int right = 100) {
 		std::vector<_Ty> vec_make(size);
@@ -80,7 +80,7 @@ namespace LeetCode {
 	};
 
 #pragma region Leetcode_DataStruct
-	//¶ş²æÊ÷
+	//äºŒå‰æ ‘
 	struct TreeNode {
 		int val;
 		TreeNode* left;
@@ -91,7 +91,7 @@ namespace LeetCode {
 		TreeNode(int x, TreeNode* left, TreeNode* right) :val(x), left(left), right(right) {}
 	};
 
-	//Á´±í
+	//é“¾è¡¨
 	struct ListNode {
 		int val;
 		ListNode* next;
@@ -101,7 +101,7 @@ namespace LeetCode {
 		ListNode(int x, ListNode* next) :val(x), next(next) {}
 	};
 
-	//²âÊÔ×é½á¹¹
+	//æµ‹è¯•ç»„ç»“æ„
 	template<typename T>
 	struct TestGroup {
 		using value_type = T;
@@ -126,9 +126,9 @@ namespace LeetCode {
 
 #pragma region InputParser
 
-	//TODO:·µ»ØÀàĞÍ³éÏó¡ª¡ª¡ªµ±ÎÄ¼şÖĞÖ»ÓĞÒ»ĞĞÊı¾İµÄÊ±ºò£¬¿ÉÒÔÖ±½Óµ÷ÓÃÓÃ»§×Ô¶¨Òåº¯Êı£¬Í¨¹ıÒşÊ½ÀàĞÍ×ª»»×ª»»³É·µ»Ø×éÎ¨Ò»ÔªËØ¡£Èç¹û¶àĞĞ²âÊÔÓÃÀı£¬ÔòÊ¹ÓÃµü´úÆ÷Ä£Ê½µü´ú²âÊÔËùÓÃÓÃÀı.
+	//TODO:è¿”å›ç±»å‹æŠ½è±¡â€”â€”â€”å½“æ–‡ä»¶ä¸­åªæœ‰ä¸€è¡Œæ•°æ®çš„æ—¶å€™ï¼Œå¯ä»¥ç›´æ¥è°ƒç”¨ç”¨æˆ·è‡ªå®šä¹‰å‡½æ•°ï¼Œé€šè¿‡éšå¼ç±»å‹è½¬æ¢è½¬æ¢æˆè¿”å›ç»„å”¯ä¸€å…ƒç´ ã€‚å¦‚æœå¤šè¡Œæµ‹è¯•ç”¨ä¾‹ï¼Œåˆ™ä½¿ç”¨è¿­ä»£å™¨æ¨¡å¼è¿­ä»£æµ‹è¯•æ‰€ç”¨ç”¨ä¾‹.
 
-	//ÊäÈë·ÖÎöÆ÷,Êı×éÊäÈë£¬¶ş²æÊ÷ÊäÈë£¬Á´±íÊäÈë
+	//è¾“å…¥åˆ†æå™¨,æ•°ç»„è¾“å…¥ï¼ŒäºŒå‰æ ‘è¾“å…¥ï¼Œé“¾è¡¨è¾“å…¥
 	template<typename _In>
 	class parser {
 	public:
@@ -143,7 +143,7 @@ namespace LeetCode {
 		}
 	};
 
-	//¶ş²æÊ÷ÊäÈë·ÖÎö
+	//äºŒå‰æ ‘è¾“å…¥åˆ†æ
 	template<>
 	class parser<TreeNode> {
 	public:
@@ -171,7 +171,7 @@ namespace LeetCode {
 				}
 				if (++iter == input_view.end()) break;
 			}
-			//Á´½Ó
+			//é“¾æ¥
 			for (int i = 0; 2 * i + 1< node.size(); ++i) {
 				if (node[i]) {
 					node[i]->left = node[2 * i + 1];
@@ -201,7 +201,7 @@ namespace LeetCode {
 		}
 	};
 
-	//Ò»Î¬Êı×éÊäÈë·ÖÎö
+	//ä¸€ç»´æ•°ç»„è¾“å…¥åˆ†æ
 	template<typename T>
 	class parser<std::vector<T>> {
 	public:
@@ -243,7 +243,7 @@ namespace LeetCode {
 		}
 	};
 
-	//×Ö·û´®ÎÄ¼şÊäÈë
+	//å­—ç¬¦ä¸²æ–‡ä»¶è¾“å…¥
 	template<>
 	class parser<std::vector<std::string>> {
 	public:
@@ -283,7 +283,7 @@ namespace LeetCode {
 		}
 	};
 
-	//¶şÎ¬Êı×éÊäÈë·ÖÎö
+	//äºŒç»´æ•°ç»„è¾“å…¥åˆ†æ
 	template<typename T>
 	class parser<std::vector<std::vector<T>>> {
 	public:
@@ -323,7 +323,7 @@ namespace LeetCode {
 		}
 	};
 
-	//Á´±íÊäÈë·ÖÎö
+	//é“¾è¡¨è¾“å…¥åˆ†æ
 	template<>
 	class parser<ListNode> {
 	public:
@@ -373,9 +373,9 @@ namespace LeetCode {
 	};
 #pragma endregion
 
-	//Éè¼ÆÌâ²âÊÔ
+	//è®¾è®¡é¢˜æµ‹è¯•
 	namespace DesignTopic {
-		//¹¤¾ß
+		//å·¥å…·
 		enum class Type {
 			VOID,
 			CHAR,
@@ -419,7 +419,7 @@ namespace LeetCode {
 		template<>
 		Type generate_type<double>() { return Type::DOUBLE; }
 
-		//·½·¨ÀàĞÍİÍÈ¡£¬»ñÈ¡·µ»ØÖµÀàĞÍ£¬¸ù¾İË÷Òı»ñÈ¡²ÎÊıÀàĞÍ
+		//æ–¹æ³•ç±»å‹èƒå–ï¼Œè·å–è¿”å›å€¼ç±»å‹ï¼Œæ ¹æ®ç´¢å¼•è·å–å‚æ•°ç±»å‹
 		template<typename func>
 		struct method_traits {};
 
@@ -453,7 +453,8 @@ namespace LeetCode {
 		}
 
 		class ReturnPtr;
-		std::unordered_map<std::string, std::function<ReturnPtr(void*, std::vector<void*>&)>> f_map; // lambda;
+		class Arguments;
+		std::unordered_map<std::string, std::function<ReturnPtr(void*, Arguments&)>> f_map; // lambda;
 
 		template<typename T, std::size_t s>
 		auto getArg(void* p) {
@@ -470,7 +471,7 @@ namespace LeetCode {
 
 		template<auto func, typename Args, std::size_t... s>
 		method_ret_t<std::function<decltype(func)>>
-			_invoke(void* p, std::vector<void*>& args, std::index_sequence<s...>) {
+		_invoke(void* p,Arguments& args, std::index_sequence<s...>) {
 			using namespace LeetCode::DesignTopic;
 
 			using Class = method_traits<std::function<decltype(func)>>::class_t;
@@ -482,10 +483,10 @@ namespace LeetCode {
 		constexpr auto registr(const std::string& name) {
 			using namespace LeetCode::DesignTopic;
 			using ret = method_ret_t<std::function<decltype(func)>>;
-			constexpr auto wrapped_function = [](void* p, std::vector<void*>& arg)->ReturnPtr {
+			constexpr auto wrapped_function = [](void* p, Arguments& args)->ReturnPtr {
 				ret* temp = new ret(_invoke<func, method_traits<std::function<decltype(func)>>::arg_list>(
 					p,
-					arg,
+					args,
 					std::make_index_sequence<method_traits<std::function<decltype(func)>>::size>{}));
 				return ReturnPtr{ temp,generate_type<ret>() };
 			};
@@ -512,6 +513,35 @@ namespace LeetCode {
 		private:
 			LeetCode::DesignTopic::Type type;
 			void* data;
+		};
+
+		class Arguments {
+		public:
+			template<typename... T>
+			Arguments(T&&... args) :_arguments(std::tuple_size_v<std::tuple<T...>>) {
+				_fill(_arguments, 0, args...);
+			}
+
+			std::vector<void*>& get_args() { return _arguments; }
+
+			void* operator[](size_t index) {
+				return _arguments[index];
+			}
+
+		private:
+
+			template<typename TF>
+			void _fill(std::vector<void*>& fillVec, int index, TF&& first) {
+				fillVec[index] = &first;
+			}
+
+			template<typename TF, typename... T>
+			void _fill(std::vector<void*>& fillVec, int index, TF&& first, T&&... args) {
+				fillVec[index] = &first;
+				_fill(fillVec, index + 1, args...);
+			}
+
+			std::vector<void*> _arguments;
 		};
 
 		std::ostream& operator<< (std::ostream& out, ReturnPtr& ret) {
