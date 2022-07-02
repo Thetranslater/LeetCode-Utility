@@ -1,5 +1,7 @@
 # LeetCode-Utility
-一个能够Leetcode 做题的工具库，主要负责解析Leetcode的字符串输入，和辅助设计题测试
+一个能够Leetcode 做题的工具库，主要负责解析Leetcode的字符串输入，和辅助设计题测试.
+
+所有内容为了方便都放在了单个头文件中，你只需要将他包含进你需要debug的题目中即可。
 
 
 
@@ -45,9 +47,8 @@ int main(){
 	REGISTRMETHOD(Solution); //程序开始时将信息注册
 	
 	Solution sltion;
-	vector<float> args{1.f,2.f};
-	vector<void*> addr_args{&args[0],&args[1]}; //TODO:尚未封装参数，先迂回一下……
-	auto res = get_method<Solution>("add")(&sltion,addr_args);
+	Arguments args{12.f,22.f};//参数包
+	auto res = get_method<Solution>("add")(&sltion,args);
 	std::cout<< res <<std::endl;
 	
 	return 0;
